@@ -13,6 +13,8 @@ app = Flask(__name__)
 def load_questions():
     try:
         df = pd.read_excel('questions.xlsx')
+        column_map = {'编号': 'id', '谜面': 'question', '答案': 'answer', '解析': 'explanation'}
+        df = df.rename(columns=column_map)
         return df.to_dict('records')
     except Exception as e:
         print(f"❌ 错误：无法读取 questions.xlsx\n{e}")
