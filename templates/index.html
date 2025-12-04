@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>猜灯谜 · 香料与美食</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <h1>🍽️ 公司猜灯谜活动</h1>
+    <p class="tip"><strong>🎮 规则：</strong>根据描述猜一种香料或美食，支持模糊输入</p>
+
+    <form action="/check" method="post">
+      <input type="hidden" name="id" value="{{ question.id }}" />
+      
+      <div class="question-box">
+        <p>{{ question.question }}</p>
+      </div>
+
+      <div class="input-group">
+        <label for="answer">你的答案：</label>
+        <input type="text" name="answer" id="answer" required placeholder="请输入答案" autofocus autocomplete="off" />
+      </div>
+
+      <button type="submit">🔍 提交答案</button>
+    </form>
+  </div>
+</body>
+</html>

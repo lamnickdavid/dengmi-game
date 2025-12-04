@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>结果 - 猜灯谜</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container result-page">
+    <h1>{% if is_correct %}🎉 答对了！{% else %}💡 再想想~{% endif %}</h1>
+
+    <div class="feedback-card">
+      <p><strong>📝 你的答案：</strong><span class="user-answer">{{ user_answer }}</span></p>
+      <p><strong>✅ 正确答案：</strong><span class="correct-answer">{{ question.answer }}</span></p>
+      <p><strong>📘 解析：</strong>{{ question.explanation }}</p>
+    </div>
+
+    <div class="next-btn">
+      <a href="/">➡️ 再来一题</a>
+    </div>
+  </div>
+</body>
+</html>
